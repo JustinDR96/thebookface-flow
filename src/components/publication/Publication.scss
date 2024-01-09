@@ -1,5 +1,5 @@
 .publication {
-  border: solid 3px purple;
+  border-right: solid 1px black;
   height: 100%;
 }
 
@@ -21,6 +21,7 @@
     .publication_add_form_header_input {
       width: 100%;
       border: solid 1px rgb(0, 0, 0);
+      background-color: white;
       border-radius: 5px;
       font-size: 20px;
       margin-left: 1rem;
@@ -38,12 +39,10 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      gap: 10px;
       img {
         width: 30px;
         cursor: pointer;
-      }
-      .publication_add_form_footer_icon_image {
-        margin-right: 10px;
       }
     }
 
@@ -60,5 +59,20 @@
         transform: translateY(2px);
       }
     }
+  }
+}
+
+.post_container {
+  background-color: black;
+  color: white;
+  width: 90%;
+  height: min-content;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  p {
+    margin-top: 1rem;
+    color: red;
   }
 }
