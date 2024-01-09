@@ -7,8 +7,7 @@ function App() {
     <>
       <Router>
         <Routes>
-          {/* Ajoutez vos routes ici */}
-          <Route path="/" element={<Pages_Home />} /> // Utilisez le bon nom ici
+          <Route path="/" element={<Pages_Home />} /> 
         </Routes>
       </Router>
     </>

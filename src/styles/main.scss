@@ -1,14 +1,18 @@
 // Importer les styles de base
-@import "./base/reset";
+@import "./base/reset.scss";
 
 // Importer les variables et les mixins
-@import "./helpers/mixins";
-@import "./helpers/variables";
+@import "./helpers/mixins.scss";
+@import "./helpers/variables.scss";
 
 // Importer les styles des composants
+@import "../components/main_container/Main_Container.scss";
+@import "../components/message/Message.scss";
+@import "../components/publication/Publication.scss";
+@import "../components/footer/Footer.scss";
 
 // Importer les styles spécifiques aux pages
 @import "../page/Home/Pages_Home.scss";
 
 // Importer les styles globaux
-@import "./App";
+@import "./App.scss";
