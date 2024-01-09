@@ -1,3 +1,183 @@
 .message {
-  border: solid 4px red;
+  background-color: rgb(255, 255, 255);
+  padding-top: 20px;
+  padding-left: 20px;
+  font-size: 20px;
+  max-height: 500px;
+  overflow: scroll;
+
+  .message_search-bar {
+    display: flex;
+    align-items: center;
+    padding-top: 10px;
+
+    .search-content {
+      display: flex;
+      align-items: center;
+
+      i {
+        color: white;
+        margin-right: 10px;
+      }
+
+      input {
+        background-color: rgb(111, 62, 62);
+        border: none;
+        color: white;
+        outline: none;
+        width: 300px;
+        padding: 10px;
+        border-radius: 7px;
+        border: 1px solid #222323;
+
+        &::placeholder {
+          color: #222323;
+        }
+      }
+
+      img {
+        margin-left: -40px;
+        height: 30px;
+        color: #222323;
+      }
+    }
+  }
+
+  .conversation-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-right: 20px;
+
+    .conversation {
+      padding: 10px;
+      position: relative;
+      display: flex;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 300px;
+        border-bottom: 1px solid #ddd;
+      }
+
+      img {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        margin-right: 10px;
+      }
+
+      .conversation_bubble {
+        width: 25px;
+        height: 25px;
+        margin-left: auto;
+      }
+
+      .profile-info {
+        h3 {
+          margin: 0;
+          font-size: 18px;
+          color: #222323;
+        }
+
+        p {
+          font-size: 15px;
+          margin-top: 5px;
+          color: #666;
+        }
+      }
+    }
+  }
+}
+
+.modal {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: rgba(255, 255, 255, 0.95);
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 999;
+  width: 400px;
+
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  .modal-content {
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+
+    h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #333;
+    }
+
+    .close-button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #888;
+      font-size: 24px;
+      margin-left: auto;
+
+      /* Ajoutez le style pour l'effet au survol */
+      transition: color 0.3s ease;
+    }
+
+    /* Style pour le survol de la souris */
+    .close-button:hover {
+      color: red;
+    }
+  }
+
+  .modal-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-container {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    input {
+      width: calc(100% - 40px);
+      padding: 12px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      outline: none;
+
+      &::placeholder {
+        color: #aaa;
+      }
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 10px;
+      margin-left: 10px;
+    }
+  }
 }
