@@ -2,3 +2,34 @@
   border: solid 3px purple;
   height: 100%;
 }
+
+.publication_add {
+  background-color: black;
+  width: 90%;
+  height: 100px;
+  padding: 15px;
+  border-radius: 5px;
+  margin: 0 auto;
+  margin-top: 20px;
+  .publication_add_form_header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      width: 50px;
+    }
+    .publication_add_form_header_input {
+      width: 100%;
+      height: 50px;
+      border: solid 1px rgb(0, 0, 0);
+      border-radius: 5px;
+      font-size: 20px;
+      margin-left: 1rem;
+      padding-left: 5px;
+      outline: none;
+    }
+  }
+
+  .publication_add_form_footer {
+  }
+}
