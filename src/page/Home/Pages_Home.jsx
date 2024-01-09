@@ -3,7 +3,9 @@ import React from "react";
 function Pages_Home() {
   return (
     <>
-      <h1>Home</h1>
+      <div className="home_container">
+        <h1>Home</h1>
+      </div>
     </>
   );
 }
