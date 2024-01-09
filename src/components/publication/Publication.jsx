@@ -13,8 +13,7 @@ function Publication() {
                 className="user_profil_image"
                 alt=""
               />
-              <input
-                type="text"
+              <textarea
                 className="publication_add_form_header_input"
                 placeholder="What's up ?"
               />
@@ -22,9 +21,34 @@ function Publication() {
 
             <div className="publication_add_form_footer">
               <div className="publication_add_form_footer_icon">
-                <input type="file" accept="image/*, .gif" />
+                <div className="publication_add_form_footer_icon_image">
+                  <label htmlFor="fileInput">
+                    <img src="/icon/image_icon.svg" alt="" />
+                  </label>
+                  <input
+                    type="file"
+                    id="fileInput"
+                    accept="image/*"
+                    style={{ display: "none" }}
+                  />
+                </div>
+
+                <div className="publication_add_form_footer_icon_gif">
+                  <label htmlFor="gifInput">
+                    <img src="/icon/gif_icon.svg" alt="" />
+                  </label>
+                  <input
+                    type="file"
+                    id="gifInput"
+                    accept=".gif"
+                    style={{ display: "none" }}
+                  />
+                </div>
               </div>
-              <button type="submit">Submit</button>{" "}
+
+              <button type="submit" className="publication_submit_button">
+                Post
+              </button>
             </div>
           </form>
         </div>
