@@ -1,17 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <>
       <div className="footer-line">
-        <a href="#">About</a>
-        <a href="#">Accessibility</a>
-        <a href="#">Help Center</a>     
-        <a href="#">Privacy and Terms</a>
-        <a href="#">Advertising</a>
-        <a href="#">Business Services</a>
+        <Link to="/about">About</Link>
+        <Link to="/accessibility">Accessibility</Link>
+        <Link >Help Center</Link>
+        <Link >Privacy and Terms</Link>
+        <Link >Advertising</Link>
+        <Link >Business Services</Link>
       </div>
     </>
   );
 }
+
 export default Footer;
