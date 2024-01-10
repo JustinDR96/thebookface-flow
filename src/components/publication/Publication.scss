@@ -6,7 +6,7 @@
 
 .publication_add {
   background-color: black;
-  width: 90%;
+  max-width: 90%;
   height: min-content;
   padding: 15px;
   border-radius: 5px;
@@ -21,6 +21,7 @@
     }
     .publication_add_form_header_input {
       width: 100%;
+      min-height: 60px;
       border: solid 1px rgb(0, 0, 0);
       background-color: white;
       border-radius: 5px;
@@ -28,6 +29,8 @@
       margin-left: 1rem;
       padding-left: 5px;
       outline: none;
+      resize: none;
+      overflow-y: hidden;
     }
   }
 
@@ -77,11 +80,26 @@
   flex-direction: column-reverse;
   justify-content: center;
   p {
-    margin-top: 1rem;
-    color: red;
+    text-align: justify;
+    max-width: 600px;
+    color: rgb(232, 219, 219);
+    word-wrap: break-word;
+    margin-top: 10px;
   }
   img {
     width: 100%;
+  }
+  .post_button {
+    width: 50px;
+    display: flex;
+    button {
+      display: flex;
+      margin-right: 5px;
+      background: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
   }
 }
 
@@ -94,7 +112,7 @@
     transform: scale(1);
   }
   50% {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
   100% {
     transform: scale(1);

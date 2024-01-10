@@ -44,8 +44,20 @@ function Publication() {
     console.log(posts);
   }, [posts]);
 
+  const handleTextChange = (e) => {
+    setText(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = `${e.target.scrollHeight}px`;
+  };
+
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    // Check if the text is empty
+    if (!text.trim()) {
+      return;
+    }
+
     const newPost = { text, imageUrl, gifUrl };
     setPosts([newPost, ...posts]);
     setText("");
@@ -53,6 +65,25 @@ function Publication() {
     setGifUrl(null); // reset the GIF URL after submitting
     setImageLoaded(false); // reset imageLoaded after submitting
     setGifLoaded(false); // reset gifLoaded after submitting
+  };
+
+  const handleEdit = (index) => {
+    const newPosts = [...posts];
+    const post = newPosts[index];
+    const newText = prompt(
+      "Entrez le nouveau texte de la publication",
+      post.text
+    );
+    if (newText) {
+      post.text = newText;
+      setPosts(newPosts);
+    }
+  };
+
+  const handleDelete = (index) => {
+    const newPosts = [...posts];
+    newPosts.splice(index, 1);
+    setPosts(newPosts);
   };
 
   return (
@@ -69,9 +100,10 @@ function Publication() {
               />
               <textarea
                 className="publication_add_form_header_input"
-                placeholder="What's up ?"
+                placeholder="What's Up ? "
                 value={text}
-                onChange={(e) => setText(e.target.value)}
+                onChange={handleTextChange}
+                maxLength="140"
               />
             </div>
 
@@ -126,6 +158,14 @@ function Publication() {
             <p>{post.text}</p>
             {post.imageUrl && <img src={post.imageUrl} alt="Post" />}
             {post.gifUrl && <img src={post.gifUrl} alt="Gif" />}
+            <div className="post_button">
+              <button onClick={() => handleEdit(index)}>
+                <img src="/icon/edit_icon.svg" alt="" />
+              </button>
+              <button onClick={() => handleDelete(index)}>
+                <img src="/icon/close_icon.svg" alt="" />
+              </button>
+            </div>
           </div>
         ))}
       </div>
