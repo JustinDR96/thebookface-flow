@@ -3,7 +3,12 @@ import React, { useState, useEffect, useRef } from "react";
 function Publication() {
   const [text, setText] = useState("");
   const [posts, setPosts] = useState([]);
+  const [imageUrl, setImageUrl] = useState(null);
+  const [gifUrl, setGifUrl] = useState(null);
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const [gifLoaded, setGifLoaded] = useState(false);
   const fileInput = useRef();
+  const gifInput = useRef();
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
@@ -13,6 +18,23 @@ function Publication() {
       const img = document.createElement("img");
       img.src = reader.result;
       fileInput.current.appendChild(img);
+      setImageUrl(reader.result); // store the image URL in the state
+      setImageLoaded(true); // set imageLoaded to true when the image is loaded
+    };
+
+    reader.readAsDataURL(file);
+  };
+
+  const handleGifUpload = (event) => {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onloadend = () => {
+      const img = document.createElement("img");
+      img.src = reader.result;
+      gifInput.current.appendChild(img);
+      setGifUrl(reader.result); // store the GIF URL in the state
+      setGifLoaded(true); // set gifLoaded to true when the GIF is loaded
     };
 
     reader.readAsDataURL(file);
@@ -24,9 +46,13 @@ function Publication() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setPosts([text, ...posts]);
+    const newPost = { text, imageUrl, gifUrl };
+    setPosts([newPost, ...posts]);
     setText("");
-    console.log(posts);
+    setImageUrl(null); // reset the image URL after submitting
+    setGifUrl(null); // reset the GIF URL after submitting
+    setImageLoaded(false); // reset imageLoaded after submitting
+    setGifLoaded(false); // reset gifLoaded after submitting
   };
 
   return (
@@ -53,25 +79,37 @@ function Publication() {
               <div className="publication_add_form_footer_icon">
                 <div className="publication_add_form_footer_icon_image">
                   <label htmlFor="fileInput">
-                    <img src="/icon/image_icon.svg" alt="" />
+                    <img
+                      src="/icon/image_icon.svg"
+                      alt=""
+                      className={imageLoaded ? "icon-loaded" : ""}
+                    />
                   </label>
                   <input
                     type="file"
                     id="fileInput"
                     accept="image/*"
                     style={{ display: "none" }}
+                    ref={fileInput}
+                    onChange={handleImageUpload}
                   />
                 </div>
 
                 <div className="publication_add_form_footer_icon_gif">
                   <label htmlFor="gifInput">
-                    <img src="/icon/gif_icon.svg" alt="" />
+                    <img
+                      src="/icon/gif_icon.svg"
+                      alt=""
+                      className={gifLoaded ? "icon-loaded" : ""}
+                    />
                   </label>
                   <input
                     type="file"
                     id="gifInput"
                     accept=".gif"
                     style={{ display: "none" }}
+                    ref={gifInput}
+                    onChange={handleGifUpload}
                   />
                 </div>
               </div>
@@ -84,8 +122,10 @@ function Publication() {
         </div>
 
         {posts.map((post, index) => (
-          <div key={index} className="post_container">
-            <p>{post}</p>
+          <div className="post_container" key={index}>
+            <p>{post.text}</p>
+            {post.imageUrl && <img src={post.imageUrl} alt="Post" />}
+            {post.gifUrl && <img src={post.gifUrl} alt="Gif" />}
           </div>
         ))}
       </div>
