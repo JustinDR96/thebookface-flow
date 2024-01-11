@@ -1,12 +1,11 @@
 .publication {
-  border-right: solid 1px black;
-  height: 75vh;
+  border-right: solid 1px rgba(217, 218, 218, 0.1);
+  height: 80vh;
   overflow: auto;
-  margin-top: 10px;
 }
 
 .publication_add {
-  background-color: black;
+  background-color: #111010;
   max-width: 90%;
   height: min-content;
   padding: 15px;
@@ -23,12 +22,13 @@
     .publication_add_form_header_input {
       width: 100%;
       min-height: 60px;
-      border: solid 1px rgb(0, 0, 0);
-      background-color: white;
+      border: solid 1px rgba(255, 255, 255, 0.1);
+      background-color: #161617;
+      color: #d9dada;
       border-radius: 5px;
       font-size: 20px;
       margin-left: 1rem;
-      padding-left: 5px;
+      padding: 5px;
       outline: none;
       resize: none;
       overflow-y: hidden;
@@ -52,7 +52,8 @@
     }
 
     .publication_submit_button {
-      background-color: white;
+      background-color: #99989b;
+      color: #dfdfe0;
       width: 60px;
       height: 30px;
       padding: 5px 10px;
