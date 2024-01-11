@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import React, { useState, useEffect, useRef } from "react";
 
 function Publication() {
@@ -87,16 +86,10 @@ function Publication() {
     setPosts(newPosts);
   };
 
-=======
-import React from "react";
-
-function Publication() {
->>>>>>> main
   return (
     <>
       <div className="publication">
         <h1>Publication</h1>
-<<<<<<< HEAD
         <div className="publication_add">
           <form className="publication_add_form" onSubmit={handleSubmit}>
             <div className="publication_add_form_header">
@@ -175,8 +168,6 @@ function Publication() {
             </div>
           </div>
         ))}
-=======
->>>>>>> main
       </div>
     </>
   );
