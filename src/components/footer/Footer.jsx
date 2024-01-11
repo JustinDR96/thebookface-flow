@@ -7,10 +7,10 @@ function Footer() {
       <div className="footer-line">
         <Link to="/about">About</Link>
         <Link to="/accessibility">Accessibility</Link>
-        <Link >Help Center</Link>
-        <Link >Privacy and Terms</Link>
-        <Link >Advertising</Link>
-        <Link >Business Services</Link>
+        <Link to="/help_center">Help Center</Link>
+        <Link to="/privacy">Privacy and Terms</Link>
+        <Link to="/advertising">Advertising</Link>
+        <Link to="/business" >Business Services</Link>
       </div>
     </>
   );

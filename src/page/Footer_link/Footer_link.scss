@@ -1,72 +1,72 @@
-// Variables de couleur
-$primary-color: #3498db;
-$accent-color: #e74c3c;
-$border-color: #bdc3c7;
-$font-family: 'Arial', sans-serif;
+// // Variables de couleur
+// $primary-color: #3498db;
+// $accent-color: #e74c3c;
+// $border-color: #bdc3c7;
+// $font-family: 'Arial', sans-serif;
 
-// Styles pour le composant Pages_about
-.footer_container {
-  padding: 20px;
+// // Styles pour le composant Pages_about
+// .footer_container {
+//   padding: 20px;
   
-}
+// }
 
-.lien_container {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  max-width: 1100px;
-  margin: 0 auto;
-  background-color: #c5c7c7;
+// .lien_container {
+//   display: grid;
+//   grid-template-columns: 2fr 1fr;
+//   max-width: 1100px;
+//   margin: 0 auto;
+//   background-color: #c5c7c7;
 
 
-  .lien_footer {
-    grid-column: 1;
-    margin-right: 20px;
-    color: $primary-color;
-    max-height: 500px;
-    overflow: scroll;
+//   .lien_footer {
+//     grid-column: 1;
+//     margin-right: 20px;
+//     color: $primary-color;
+//     max-height: 500px;
+//     overflow: scroll;
 
-    h1 {
-      font-size: 3em; // Ajustement de la taille pour le titre
-      margin-bottom: 20px;
-    }
+//     h1 {
+//       font-size: 3em; // Ajustement de la taille pour le titre
+//       margin-bottom: 20px;
+//     }
 
-    p {
-      font-size: 1.4em;
-      line-height: 1.6;
-      margin-bottom: 20px;
-      color: #555; // Couleur du texte gris foncé
-    }
+//     p {
+//       font-size: 1.4em;
+//       line-height: 1.6;
+//       margin-bottom: 20px;
+//       color: #555; // Couleur du texte gris foncé
+//     }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 20px; // Espacement entre les paragraphes et la liste
+//     ul {
+//       list-style: none;
+//       padding: 0;
+//       margin-bottom: 20px; // Espacement entre les paragraphes et la liste
 
-      li {
-        margin-bottom: 10px;
+//       li {
+//         margin-bottom: 10px;
 
-        &::before {
-          content: '👉';
-          margin-right: 10px;
-          color: $accent-color;
-          font-size: 2em; // Ajustement de la taille pour l'emoji dans la liste
-        }
-      }
-    }
+//         &::before {
+//           content: '👉';
+//           margin-right: 10px;
+//           color: $accent-color;
+//           font-size: 2em; // Ajustement de la taille pour l'emoji dans la liste
+//         }
+//       }
+//     }
 
-    .highlight {
-      color: $accent-color;
-      font-weight: bold;
-    }
+//     .highlight {
+//       color: $accent-color;
+//       font-weight: bold;
+//     }
 
-    .emphasize {
-      font-size: 1.4em;
-      font-weight: bold;
-      color: $accent-color;
-    }
-  }
+//     .emphasize {
+//       font-size: 1.4em;
+//       font-weight: bold;
+//       color: $accent-color;
+//     }
+//   }
 
-  .messagee_footer {
-    grid-column: 2;
-  }
-}
+//   .messagee_footer {
+//     grid-column: 2;
+//   }
+// }
