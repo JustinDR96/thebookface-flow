@@ -11,8 +11,11 @@
 @import "../components/publication/Publication.scss";
 @import "../components/footer/Footer.scss";
 
+
 // Importer les styles spécifiques aux pages
 @import "../page/Home/Pages_Home.scss";
+@import "../page/Footer_link/Footer_link.scss";
 
 // Importer les styles globaux
 @import "./App.scss";
+
