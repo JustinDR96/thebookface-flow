@@ -1,6 +1,7 @@
 .publication {
   border-right: solid 1px rgba(217, 218, 218, 0.1);
-  height: 80vh;
+  max-height: 95vh;
+  min-height: 95vh;
   overflow: auto;
 }
 

@@ -1,4 +1,7 @@
 .home_container {
   border: solid 3px green;
   padding: 1rem;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
 }
