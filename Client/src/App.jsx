@@ -22,7 +22,6 @@ function App() {
           <Route path="/privacy" element={<Pages_Privacy />} />
           <Route path="/advertising" element={<Pages_Advertising />} />
           <Route path="/business" element={<Pages_Business />} />
-
         </Routes>
       </Router>
     </>

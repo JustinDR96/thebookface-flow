@@ -1,11 +1,14 @@
 import React, { Component } from "react";
 import Main_Container from "../../components/main_container/Main_Container";
+import Profil from "../../components/profil/Profil";
 
 function Pages_Home() {
   return (
     <>
       <div className="home_container">
-        <h1>Home</h1>
+        <div className="main_profil">
+          <Profil />
+        </div>
         <Main_Container />
       </div>
     </>
