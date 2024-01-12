@@ -1,9 +1,45 @@
 .home_container {
   border: solid 3px green;
   padding: 1rem;
-  display: grid;
-  grid-template-columns: 1fr 3fr;
-  gap: 1rem;
   min-height: 100vh;
+  display: flex;
   align-items: center;
+  .desktop-layout {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+  }
+  .tablet-layout {
+    display: none;
+    width: 100%;
+    min-height: 100vh;
+    .tablet-layout-navbar {
+    }
+
+    .tablet-layout-main {
+    }
+    .tablet-layout-footer {
+    }
+  }
+}
+@include tablet {
+  .home_container {
+    padding: 0;
+    flex-direction: column;
+    .tablet-layout {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .desktop-layout {
+      display: none;
+    }
+  }
+}
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;
 }

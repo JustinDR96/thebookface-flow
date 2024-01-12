@@ -15,8 +15,6 @@ function Main_Container() {
           <Message />
           <Footer />
         </div>
-
-        
       </div>
     </>
   );
