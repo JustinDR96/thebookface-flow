@@ -38,3 +38,65 @@
     }
   }
 }
+
+.setting-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); // Fond semi-transparent
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .button-modal {
+    background-color: #fff;
+    padding: 20px; // Ajustez la marge intérieure selon vos préférences
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      width: 200px;
+    }
+
+    .disconnect-btn {
+      background-color: #ff0000; // Rouge
+      color: #fff; // Texte blanc
+    }
+
+    .create-account-btn {
+      background-color: #00ff00; // Vert
+      color: #fff; // Texte blanc
+    }
+
+    .close-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 24px;
+      color: #000; // Couleur de la lettre "X" par défaut
+      transition: color 0.3s ease; // Effet de transition de couleur
+
+      &:hover {
+        color: #ff0000; // Couleur rouge au survol
+      }
+    }
+  }
+}
