@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
+import { Link } from "react-router-dom";
 
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
@@ -33,21 +34,24 @@ export default function Profil() {
       <div className="info-bar"></div>
       <div className="notif-profil">
         <a href="#" className="logo-link">
-          <h1 className="logo-text">
-            <img
-              src="/icon/home_icon.svg"
-              alt="home Logo"
-              className="home_logo"
-            />
-            <span className="logo_title">Home</span>
-          </h1>
+          <Link to="/home" className="nav-link">
+            <h1 className="logo-text">
+              <img
+                src="/icon/home_icon.svg"
+                alt="home Logo"
+                className="home_logo"
+              />
+              <span className="logo_title">Home</span>
+            </h1>
+          </Link>
         </a>
+
         <a href="#" className="logo-link">
           <h1 className="logo-text">
             <img
               src="/icon/notif_logo.svg"
               alt="setting Logo"
-              className="setting_logo"
+              className="notif_logo"
             />
             Notification
           </h1>

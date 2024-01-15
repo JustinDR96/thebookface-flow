@@ -1,65 +1,43 @@
-// // Styles pour le composant Pages_about
-// .footer_container {
-//   padding: 20px;
-//   border: solid 1px black;
-// }
 
-// .lien_container {
-//   display: grid;
-//   grid-template-columns: 2fr 1fr;
-//   max-width: 1100px;
-//   margin: 0 auto;
-//   background-color: #c5c7c7;
+$white-color: #fff;
 
-//   .lien_footer {
-//     grid-column: 1;
-//     margin-right: 20px;
-//     color: $primary-color;
-//     max-height: 500px;
-//     overflow: scroll;
 
-//     h1 {
-//       font-size: 3em; // Ajustement de la taille pour le titre
-//       margin-bottom: 20px;
-//     }
+div {
+  h1 {
+    color: $white-color;
+    font-size: 2.5em;
+    margin-bottom: 30px;
+    padding-top: 20px;
+    margin-left: 10px;
+  }
 
-//     p {
-//       font-size: 1.4em;
-//       line-height: 1.6;
-//       margin-bottom: 20px;
-//       color: #555; // Couleur du texte gris foncé
-//     }
+  section {
+    margin-left: 10px;
+    margin-bottom: 40px;
 
-//     ul {
-//       list-style: none;
-//       padding: 0;
-//       margin-bottom: 20px; // Espacement entre les paragraphes et la liste
+    h2 {
+      color: $white-color;
+      font-size: 1.5em;
+      margin-bottom: 10px;
+    }
 
-//       li {
-//         margin-bottom: 10px;
+    p {
+      color: $white-color;
+      font-size: 1.2em;
+      line-height: 1.6;
+    }
+  }
 
-//         &::before {
-//           content: "👉";
-//           margin-right: 10px;
-//           color: $accent-color;
-//           font-size: 2em; // Ajustement de la taille pour l'emoji dans la liste
-//         }
-//       }
-//     }
+  .highlighted-text {
+    color: $white-color;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 20px;
 
-//     .highlight {
-//       color: $accent-color;
-//       font-weight: bold;
-//     }
-
-//     .emphasize {
-//       font-size: 1.4em;
-//       font-weight: bold;
-//       color: $accent-color;
-//     }
-//   }
-
-//   .messagee_footer {
-//     grid-column: 2;
-//   }
-// }
+    &:before,
+    &:after {
+      content: '✨';
+      margin: 0 5px;
+    }
+  }
+}

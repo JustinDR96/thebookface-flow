@@ -12,7 +12,6 @@ function Main_Container() {
           {/* <Profil_view /> */}
           <Publication />
         </div>
-
         <div className="message_footer">
           <Message />
           <Footer />
