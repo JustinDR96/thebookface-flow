@@ -10,7 +10,6 @@ function Main_Container() {
         <div className="main_publication">
           <Publication />
         </div>
-
         <div className="message_footer">
           <Message />
           <Footer />
