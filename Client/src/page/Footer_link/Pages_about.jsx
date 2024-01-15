@@ -1,6 +1,7 @@
 import React from 'react';
 import Message from '../../components/message/Message';
 import Footer from '../../components/footer/Footer';
+import Profil from '../../components/profil/Profil';
 
 export default function Pages_about() {
   return (
