@@ -5,6 +5,7 @@ import Message from "../../components/message/Message";
 import Publication from "../../components/publication/Publication";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
+import Profil_view from "../../components/profil_view/Profil_view";
 
 function Pages_Home() {
   const [activeComponent, setActiveComponent] = useState("publication");
@@ -40,6 +41,14 @@ function Pages_Home() {
               }`}
             >
               <Publication />
+            </div>
+
+            <div
+              className={`main-profil-view ${
+                activeComponent === "profil_view" ? "show" : "hide"
+              }`}
+            >
+              <Profil_view />
             </div>
           </div>
 

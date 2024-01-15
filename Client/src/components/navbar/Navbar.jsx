@@ -14,9 +14,9 @@ export default function Navbar({ onLinkClick }) {
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
-        <Link to="/">
+        <a onClick={() => onLinkClick("profil_view")}>
           <img src="/image/user_image.jpg" alt="" />
-        </Link>
+        </a>
       </div>
 
       <div className="navbar-links">
