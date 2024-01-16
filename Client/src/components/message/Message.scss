@@ -9,21 +9,19 @@
   .message-title {
     color: #d9dada;
     margin-left: 3px;
+    font-size: 1.5rem;
   }
   .message_search-bar {
     display: flex;
     align-items: center;
     padding-top: 10px;
-
     .search-content {
       display: flex;
       align-items: center;
-
       i {
         color: #d9dada;
         margin-right: 10px;
       }
-
       input {
         background-color: #161617;
         border: none;
@@ -112,7 +110,7 @@
   z-index: 999;
   width: 400px;
   height: 300px;
-  overflow: auto ;
+  overflow: auto;
   display: flex;
   flex-direction: column;
 
@@ -220,21 +218,19 @@
 }
 
 .message-item.user .message-content p {
-  background-color: #DCF8C6; /* Ajouter un fond coloré pour les messages de l'utilisateur */
+  background-color: #dcf8c6; /* Ajouter un fond coloré pour les messages de l'utilisateur */
 }
 .message-item.john-doe .message-content p {
-  background-color: #E4EAF2; /* Fond coloré pour les messages de John Doe */
+  background-color: #e4eaf2; /* Fond coloré pour les messages de John Doe */
   border-radius: 10px; /* Border radius pour arrondir les coins */
   padding: 10px;
 }
 
 .message-item.user .message-content p {
-  background-color: #DCF8C6; /* Fond coloré pour les messages de l'utilisateur */
+  background-color: #dcf8c6; /* Fond coloré pour les messages de l'utilisateur */
   border-radius: 10px; /* Border radius pour arrondir les coins */
   padding: 10px;
 }
-
-
 
 @media (max-width: 600px) {
   .modal {
@@ -242,13 +238,9 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    border-radius: 0; 
+    border-radius: 0;
     z-index: 9999;
     background-color: #ffff;
-    border-radius: 5px
-    ;
+    border-radius: 5px;
   }
 }
-
-
-
