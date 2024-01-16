@@ -20,7 +20,9 @@ export default function Navbar({ onLinkClick }) {
 
       <div className="navbar-links">
         <button onClick={() => onLinkClick("publication")}>
+          <Link to="/home">
           <img src="/icon/home_icon.svg" alt="" />
+          </Link>
         </button>
         <button to="/">
           <img src="/icon/notif_logo.svg" alt="" />
