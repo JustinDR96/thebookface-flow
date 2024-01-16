@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Profil() {
@@ -14,6 +14,7 @@ export default function Profil() {
 
   return (
     <div className="page-profil">
+      <img src="/image/logo_flow_3.png" alt="" className="logo-flow" />
       <img
         className="img-profil"
         src="https://placekitten.com/80/80?image"

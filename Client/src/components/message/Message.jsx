@@ -13,15 +13,12 @@ function Message() {
     { id: 9, name: "Guillaulme Smith", Position: "Londre" },
   ];
 
-  const reponse = [
-    { id: 1, name: "John Doe", message: "Bonjour" },
-  ]
+  const reponse = [{ id: 1, name: "John Doe", message: "Bonjour" }];
 
   const [searchTerm, setSearchTerm] = useState("");
   const [openProfiles, setOpenProfiles] = useState([]);
   const [messages, setMessages] = useState([]);
   const [messageStates, setMessageStates] = useState({});
-
 
   const handleBubbleClick = (profile) => {
     if (openProfiles.length < 2) {
@@ -54,12 +51,9 @@ function Message() {
       });
     }
   };
-  const filteredProfiles = profiles.filter(profile =>
+  const filteredProfiles = profiles.filter((profile) =>
     profile.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
-
-
-
 
   return (
     <>
@@ -110,7 +104,10 @@ function Message() {
           <div className="modal-content">
             <div className="modal-header">
               <h3>{profile.name}</h3>
-              <button className="close-button" onClick={() => closeProfileModal(profile)}>
+              <button
+                className="close-button"
+                onClick={() => closeProfileModal(profile)}
+              >
                 ×
               </button>
             </div>
@@ -120,7 +117,12 @@ function Message() {
                   reponse.map((msg, index) => (
                     <div key={index} className="message-item john-doe">
                       <div className="message-content">
-                        <img src="../../public/image/user_image.jpg" alt="John Doe" width="30" height="30" />
+                        <img
+                          src="/image/user_image.jpg"
+                          alt="John Doe"
+                          width="30"
+                          height="30"
+                        />
                         <p>{msg.message}</p>
                       </div>
                     </div>
@@ -128,21 +130,24 @@ function Message() {
                 {messageStates[profile.id].messages.map((msg, index) => (
                   <div
                     key={index}
-                    className={`message-item ${msg.sender === "John Doe" ? "john-doe" : "user"}`}
+                    className={`message-item ${
+                      msg.sender === "John Doe" ? "john-doe" : "user"
+                    }`}
                   >
                     <div className="message-content">
                       {msg.sender === "John Doe" && (
-                        <img src="../../public/image/user_image.jpg" alt="John Doe" width="30" height="30" />
+                        <img
+                          src="/image/user_image.jpg"
+                          alt="John Doe"
+                          width="30"
+                          height="30"
+                        />
                       )}
                       <p>{msg.content}</p>
                     </div>
                   </div>
                 ))}
               </div>
-
-
-
-
 
               <div className="input-container">
                 <input
@@ -160,15 +165,17 @@ function Message() {
                   placeholder="Type your message..."
                 />
                 <button onClick={() => handleSendClick(profile)}>
-                  <img className="send" src="/icon/send_logo.svg" alt="Send Logo" />
+                  <img
+                    className="send"
+                    src="/icon/send_logo.svg"
+                    alt="Send Logo"
+                  />
                 </button>
               </div>
             </div>
           </div>
         </div>
       ))}
-
-
     </>
   );
 }

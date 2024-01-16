@@ -63,6 +63,7 @@ export default function Pages_login() {
 
   return (
     <div className="login-container">
+      <img src="/image/logo_flow_3.png" alt="" className="logo-flow-login" />
       <div className="login-box">
         <h1>Login</h1>
         <div className="login-form">

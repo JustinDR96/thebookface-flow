@@ -77,7 +77,6 @@
     height: 15%;
     padding: 10px;
     margin-bottom: 10px;
-    
 
     &:hover {
       background-color: #222627;
@@ -89,7 +88,7 @@
     .nav-link {
       text-decoration: none;
       color: inherit;
-    
+
       &:hover {
         background-color: transparent;
       }
@@ -106,7 +105,6 @@
     .message_logo {
       margin-right: 10px;
     }
-    
 
     .logo-text {
       display: flex;
@@ -143,19 +141,19 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
     position: relative;
-  
+
     h2 {
       font-size: 24px;
       margin-bottom: 20px;
       color: #333333;
     }
-  
+
     p {
       font-size: 16px;
       margin-bottom: 20px;
       color: #666666;
     }
-  
+
     button {
       padding: 12px 24px;
       margin: 10px;
@@ -164,24 +162,26 @@
       width: 200px;
       border: none;
       border-radius: 5px;
-      transition: background-color 0.3s ease, color 0.3s ease;
-  
+      transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
       &:hover {
         background-color: #333333;
         color: #ffffff;
       }
     }
-  
+
     .disconnect-btn {
       background-color: #cc0000; /* Rouge foncé */
       color: #ffffff;
     }
-    
+
     .create-account-btn {
       background-color: #4e8c4a; /* Vert foncé */
       color: #ffffff;
     }
-    
+
     .close-icon {
       position: absolute;
       top: 10px;
@@ -190,11 +190,15 @@
       font-size: 24px;
       color: #666666;
       transition: color 0.3s ease;
-  
+
       &:hover {
         color: #cc0000;
       }
     }
   }
-  
+}
+
+.logo-flow {
+  width: 150px;
+  align-self: center;
 }
