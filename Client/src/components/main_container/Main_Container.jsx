@@ -9,7 +9,6 @@ function Main_Container() {
     <>
       <div className="main_container">
         <div className="main_publication">
-          {/* <Profil_view /> */}
           <Publication />
         </div>
         <div className="message_footer">

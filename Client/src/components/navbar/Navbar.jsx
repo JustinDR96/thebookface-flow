@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Navbar({ onLinkClick }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -21,7 +22,7 @@ export default function Navbar({ onLinkClick }) {
       <div className="navbar-links">
         <button onClick={() => onLinkClick("publication")}>
           <Link to="/home">
-          <img src="/icon/home_icon.svg" alt="" />
+            <img src="/icon/home_icon.svg" alt="" />
           </Link>
         </button>
         <button to="/">
