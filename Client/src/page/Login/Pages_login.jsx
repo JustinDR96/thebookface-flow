@@ -51,16 +51,31 @@ export default function Pages_login() {
       return;
     }
 
-    console.log("Création du compte avec les données:", {
-      email,
-      firstName,
-      lastName,
-      password,
-      selectedAge,
-    });
     handleCloseModal();
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const response = await fetch("http://localhost:5025/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email: email,
+        UserName: UserName,
+        FirstName: firstName,
+        LastName: lastName,
+        Password: password,
+      }),
+    });
+
+    const data = await response.json();
+
+    console.log(data);
+    // Gérer la réponse du serveur ici
+  };
   return (
     <div className="login-container">
       <img src="/image/logo_flow_3.png" alt="" className="logo-flow-login" />
@@ -97,7 +112,7 @@ export default function Pages_login() {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Créer un nouveau compte</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <span className="close-icon" onClick={handleCloseModal}>
                 &times;
               </span>
