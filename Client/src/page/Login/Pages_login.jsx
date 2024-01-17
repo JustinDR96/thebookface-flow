@@ -4,6 +4,7 @@ import "./Pages_login.scss"; // Assurez-vous d'importer le fichier Sass
 export default function Pages_login() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -57,24 +58,27 @@ export default function Pages_login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:5025/api/register", {
+    fetch("http://localhost:5025/api/Account/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
         Email: email,
-        UserName: UserName,
+        UserName: userName,
         FirstName: firstName,
         LastName: lastName,
         Password: password,
       }),
-    });
-
-    const data = await response.json();
-
-    console.log(data);
-    // Gérer la réponse du serveur ici
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // Gérer la réponse du serveur ici
+      })
+      .catch((error) => {
+        console.error("Erreur:", error);
+      });
   };
   return (
     <div className="login-container">
@@ -125,6 +129,14 @@ export default function Pages_login() {
                 />
               </label>
               <label>
+                UserName:
+                <input
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
+                />
+              </label>
+              <label>
                 Prénom:
                 <input
                   type="text"
@@ -167,7 +179,7 @@ export default function Pages_login() {
                   ))}
                 </select>
               </label>
-              <button type="button" onClick={handleCreateAccount}>
+              <button type="button" onClick={handleSubmit}>
                 Créer un compte
               </button>
             </form>
