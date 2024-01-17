@@ -65,7 +65,7 @@ export default function Pages_login() {
     <div className="login-container">
       <img src="/image/logo_flow_3.png" alt="" className="logo-flow-login" />
       <div className="login-box">
-        <h1>Login</h1>
+        <h1 className="login_flow" >Se connecter à Flow</h1>
         <div className="login-form">
           <label>
             Adresse e-mail:
@@ -96,7 +96,7 @@ export default function Pages_login() {
       {showModal && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <h2>Créer un nouveau compte</h2>
+            <h2 className="login_flow" >Créer un nouveau compte</h2>
             <form>
               <span className="close-icon" onClick={handleCloseModal}>
                 &times;

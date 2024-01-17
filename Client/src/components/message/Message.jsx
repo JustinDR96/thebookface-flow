@@ -14,7 +14,6 @@ function Message() {
   ];
 
   const reponse = [{ id: 1, name: "John Doe", message: "Bonjour" }];
-
   const [searchTerm, setSearchTerm] = useState("");
   const [openProfiles, setOpenProfiles] = useState([]);
   const [messages, setMessages] = useState([]);

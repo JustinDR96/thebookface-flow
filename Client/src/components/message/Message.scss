@@ -5,10 +5,10 @@
   overflow: auto;
   overflow-x: hidden;
   height: 80vh;
-  border: solid 1px rgba(217, 218, 218, 0.1);
   .message-title {
     color: #d9dada;
     margin-left: 3px;
+    font-size: 1.5rem;
   }
   .message_search-bar {
     display: flex;
@@ -63,7 +63,6 @@
         bottom: 0;
         left: 0;
         width: 300px;
-        border-bottom: 1px solid rgba(221, 221, 221, 0.1);
       }
 
       img {
@@ -96,6 +95,7 @@
     .conversation:hover {
       width: 100%;
       background-color: #222627;
+      border-radius: 10px;
       cursor: pointer;
     }
   }
@@ -105,7 +105,7 @@
   position: fixed;
   bottom: 20px;
   right: 20px;
-  background-color: rgba(255, 255, 255, 0.95);
+  background-color: #F5F3FA;
   border: 1px solid #ddd;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
