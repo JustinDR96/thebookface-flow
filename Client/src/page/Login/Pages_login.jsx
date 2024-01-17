@@ -8,13 +8,8 @@ export default function Pages_login() {
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [selectedAge, setSelectedAge] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
-  const ageOptions = Array.from({ length: 100 }, (_, index) =>
-    String(index + 1)
-  ); // Créer un tableau d'âges de 1 à 100
 
   const isPasswordValid = () => {
     return password.length >= 9;
@@ -165,20 +160,6 @@ export default function Pages_login() {
                 </span>
               </label>
               {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
-              <label>
-                Âge:
-                <select
-                  value={selectedAge}
-                  onChange={(e) => setSelectedAge(e.target.value)}
-                >
-                  <option value="">Sélectionnez votre âge</option>
-                  {ageOptions.map((age) => (
-                    <option key={age} value={age}>
-                      {age}
-                    </option>
-                  ))}
-                </select>
-              </label>
               <button type="button" onClick={handleSubmit}>
                 Créer un compte
               </button>
