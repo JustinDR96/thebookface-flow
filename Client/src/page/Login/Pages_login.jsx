@@ -4,16 +4,12 @@ import "./Pages_login.scss"; // Assurez-vous d'importer le fichier Sass
 export default function Pages_login() {
   const [showModal, setShowModal] = useState(false);
   const [email, setEmail] = useState("");
+  const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [selectedAge, setSelectedAge] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
-
-  const ageOptions = Array.from({ length: 100 }, (_, index) =>
-    String(index + 1)
-  ); // Créer un tableau d'âges de 1 à 100
 
   const isPasswordValid = () => {
     return password.length >= 9;
@@ -51,16 +47,34 @@ export default function Pages_login() {
       return;
     }
 
-    console.log("Création du compte avec les données:", {
-      email,
-      firstName,
-      lastName,
-      password,
-      selectedAge,
-    });
     handleCloseModal();
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    fetch("http://localhost:5025/api/Account/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        Email: email,
+        UserName: userName,
+        FirstName: firstName,
+        LastName: lastName,
+        Password: password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // Gérer la réponse du serveur ici
+      })
+      .catch((error) => {
+        console.error("Erreur:", error);
+      });
+  };
   return (
     <div className="login-container">
       <img src="/image/logo_flow_3.png" alt="" className="logo-flow-login" />
@@ -97,7 +111,7 @@ export default function Pages_login() {
         <div className="modal-overlay">
           <div className="modal-content">
             <h2>Créer un nouveau compte</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
               <span className="close-icon" onClick={handleCloseModal}>
                 &times;
               </span>
@@ -107,6 +121,14 @@ export default function Pages_login() {
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                />
+              </label>
+              <label>
+                UserName:
+                <input
+                  type="text"
+                  value={userName}
+                  onChange={(e) => setUserName(e.target.value)}
                 />
               </label>
               <label>
@@ -138,21 +160,7 @@ export default function Pages_login() {
                 </span>
               </label>
               {passwordError && <p style={{ color: "red" }}>{passwordError}</p>}
-              <label>
-                Âge:
-                <select
-                  value={selectedAge}
-                  onChange={(e) => setSelectedAge(e.target.value)}
-                >
-                  <option value="">Sélectionnez votre âge</option>
-                  {ageOptions.map((age) => (
-                    <option key={age} value={age}>
-                      {age}
-                    </option>
-                  ))}
-                </select>
-              </label>
-              <button type="button" onClick={handleCreateAccount}>
+              <button type="button" onClick={handleSubmit}>
                 Créer un compte
               </button>
             </form>

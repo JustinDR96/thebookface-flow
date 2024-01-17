@@ -6,8 +6,13 @@
   align-items: center;
   height: 100vh;
 
+  .login_flow {
+    text-align: center;
+    color: #333;
+  }
+
   .login-box {
-    background-color: #fff;
+    background-color: #f5f3fa;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -36,34 +41,34 @@
           padding: 10px;
           margin-bottom: 10px;
           box-sizing: border-box;
-          border: 1px solid #ccc;
+          border: 1px solid #f5f3fa;
           border-radius: 4px;
           outline: none;
           transition: border-color 0.3s;
 
           &:focus {
-            border-color: #4caf50;
+            border-color: #a241fa;
           }
         }
       }
 
       .password-toggle {
         font-size: 14px;
-        color: #4caf50;
+        color: #a241fa;
         cursor: pointer;
         margin-top: 5px;
         transition: color 0.3s;
 
         &:hover {
-          color: #45a049;
+          color: #a241fa;
         }
       }
 
       button {
         width: 100%;
         padding: 12px;
-        background-color: #4caf50;
-        color: #fff;
+        background-color: #a241fa;
+        color: #f5f3fa;
         border: none;
         border-radius: 4px;
         cursor: pointer;
@@ -71,7 +76,7 @@
         transition: background-color 0.3s;
 
         &:hover {
-          background-color: #45a049;
+          background-color: #df41fa;
         }
       }
 
@@ -89,14 +94,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 999;
 
     .modal-content {
-      background-color: #fff;
+      background-color: #f5f3fa;
+      border: 1px solid #f5f3fa;
       padding: 20px;
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
@@ -141,33 +147,33 @@
             padding: 10px;
             margin-bottom: 10px;
             box-sizing: border-box;
-            border: 1px solid #ccc;
+            border: 1px solid #f5f3fa;
             border-radius: 4px;
             outline: none;
             transition: border-color 0.3s;
 
             &:focus {
-              border-color: #4caf50;
+              border-color: #a241fa;
             }
           }
         }
 
         .password-toggle {
           font-size: 14px;
-          color: #4caf50;
+          color: #a241fa;
           cursor: pointer;
           margin-top: 5px;
           transition: color 0.3s;
 
           &:hover {
-            color: #45a049;
+            color: #a241fa;
           }
         }
 
         button {
           width: 100%;
           padding: 12px;
-          background-color: #4caf50;
+          background-color: #a241fa;
           color: #fff;
           border: none;
           border-radius: 4px;
@@ -176,7 +182,7 @@
           transition: background-color 0.3s;
 
           &:hover {
-            background-color: #45a049;
+            background-color: #df41fa;
           }
         }
 
