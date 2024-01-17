@@ -89,7 +89,6 @@ function Publication() {
   return (
     <>
       <div className="publication">
-        <h1>Publication</h1>
         <div className="publication_add">
           <form className="publication_add_form" onSubmit={handleSubmit}>
             <div className="publication_add_form_header">

@@ -3,25 +3,25 @@
   padding-left: 20px;
   font-size: 20px;
   overflow: auto;
+  overflow-x: hidden;
   height: 80vh;
+  border: solid 1px rgba(217, 218, 218, 0.1);
   .message-title {
     color: #d9dada;
     margin-left: 3px;
+    font-size: 1.5rem;
   }
   .message_search-bar {
     display: flex;
     align-items: center;
     padding-top: 10px;
-
     .search-content {
       display: flex;
       align-items: center;
-
       i {
         color: #d9dada;
         margin-right: 10px;
       }
-
       input {
         background-color: #161617;
         border: none;
@@ -93,7 +93,7 @@
     }
     .conversation:hover {
       width: 100%;
-      background-color: #222323;
+      background-color: #222627;
       cursor: pointer;
     }
   }
@@ -109,9 +109,8 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
   z-index: 999;
   width: 400px;
-
   height: 300px;
-  overflow: hidden;
+  overflow: auto;
   display: flex;
   flex-direction: column;
 
@@ -199,4 +198,49 @@
 ::-webkit-scrollbar-thumb {
   background: var(--sb-thumb-color);
   border-radius: 4px;
+}
+.message-item {
+  padding: 8px;
+  margin-bottom: 8px;
+}
+.message-content {
+  display: flex;
+  align-items: center; /* Aligne les éléments verticalement au centre */
+  margin-right: 10px; /* Ajoute un espacement à droite entre l'image et le texte si nécessaire */
+}
+
+.message-content img {
+  margin-right: 10px; /* Ajoute un espacement à droite entre l'image et le texte si nécessaire */
+}
+
+.message-item.user .message-content {
+  justify-content: flex-end; /* Aligner à droite les messages de l'utilisateur */
+}
+
+.message-item.user .message-content p {
+  background-color: #dcf8c6; /* Ajouter un fond coloré pour les messages de l'utilisateur */
+}
+.message-item.john-doe .message-content p {
+  background-color: #e4eaf2; /* Fond coloré pour les messages de John Doe */
+  border-radius: 10px; /* Border radius pour arrondir les coins */
+  padding: 10px;
+}
+
+.message-item.user .message-content p {
+  background-color: #dcf8c6; /* Fond coloré pour les messages de l'utilisateur */
+  border-radius: 10px; /* Border radius pour arrondir les coins */
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  .modal {
+    height: 90vh;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0;
+    z-index: 9999;
+    background-color: #ffff;
+    border-radius: 5px;
+  }
 }

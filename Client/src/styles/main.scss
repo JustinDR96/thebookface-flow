@@ -10,12 +10,14 @@
 @import "../components/message/Message.scss";
 @import "../components/publication/Publication.scss";
 @import "../components/footer/Footer.scss";
-
+@import "../components/profil/Profil.scss";
+@import "../components/navbar/Navbar.scss";
+@import "../components/profil_view/Profil_view.scss";
 
 // Importer les styles spécifiques aux pages
 @import "../page/Home/Pages_Home.scss";
 @import "../page/Footer_link/Footer_link.scss";
+@import "../page/Login/Pages_login.scss";
 
 // Importer les styles globaux
 @import "./App.scss";
-
