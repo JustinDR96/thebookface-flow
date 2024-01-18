@@ -13,11 +13,13 @@
 @import "../components/profil/Profil.scss";
 @import "../components/navbar/Navbar.scss";
 @import "../components/profil_view/Profil_view.scss";
+@import "../components/search_bar/Search_bar.scss";
 
 // Importer les styles spécifiques aux pages
 @import "../page/Home/Pages_Home.scss";
 @import "../page/Footer_link/Footer_link.scss";
 @import "../page/Login/Pages_login.scss";
+@import "../page/Profil_page/Profil_page.scss";
 
 // Importer les styles globaux
 @import "./App.scss";
