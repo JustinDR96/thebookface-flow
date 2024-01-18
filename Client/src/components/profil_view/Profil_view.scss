@@ -1,3 +1,6 @@
+.profil-view.wide {
+  width: 70vw;
+}
 .profil-view {
   width: 100%;
   display: flex;
@@ -32,6 +35,8 @@
       .edit-profil {
         padding: 5px;
         border-radius: 10px;
+        display: flex;
+        align-items: center;
         border: none;
         outline: none;
         cursor: pointer;

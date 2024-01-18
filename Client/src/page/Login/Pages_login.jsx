@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Pages_login.scss"; // Assurez-vous d'importer le fichier Sass
+import { useNavigate } from "react-router-dom";
 
 export default function Pages_login() {
   const [showModal, setShowModal] = useState(false);
@@ -15,9 +16,41 @@ export default function Pages_login() {
     return password.length >= 9;
   };
 
-  const handleLogin = () => {
-    // Ajoutez ici la logique pour la connexion
-    console.log("Se connecter avec les données:", { email, password });
+  const navigate = useNavigate();
+
+  const handleLogin = async (event) => {
+    console.log("handleLogin called");
+    event.preventDefault();
+
+    fetch("http://localhost:5025/api/Account/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        UserName: userName,
+        Password: password,
+      }),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+        // Vérifiez si un token est présent dans la réponse
+        navigate("/home");
+        if (data.token) {
+          // Si la connexion réussit, redirigez vers /home
+        } else {
+          // Gérez l'échec de la connexion ici, par exemple en affichant un message d'erreur
+        }
+      })
+      .catch((error) => {
+        console.error("There was an error!", error);
+      });
   };
 
   const handleOpenModal = () => {
@@ -82,11 +115,11 @@ export default function Pages_login() {
         <h1>Login</h1>
         <div className="login-form">
           <label>
-            Adresse e-mail:
+            Username:
             <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              type="text"
+              value={userName}
+              onChange={(e) => setUserName(e.target.value)}
             />
           </label>
           <label>
