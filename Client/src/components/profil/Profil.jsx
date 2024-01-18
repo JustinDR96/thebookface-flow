@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Publication from "../publication/Publication";
+import { useNavigate } from "react-router-dom";
 
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
+
+  const navigate = useNavigate();
 
   const openModal = () => {
     setModalOpen(true);
@@ -40,7 +43,6 @@ export default function Profil() {
           </svg>
         </button>
       )}
-      <p>Position</p>
       <div className="post-follower-following">
         <div className="info-group">
           <p className="info-label">Post</p>
@@ -112,7 +114,10 @@ export default function Profil() {
             <div>
               <button
                 className="disconnect-btn"
-                onClick={() => console.log("Se déconnecter")}
+                onClick={() => {
+                  console.log("Se déconnecter");
+                  navigate("/");
+                }}
               >
                 Se déconnecter
               </button>
@@ -120,7 +125,10 @@ export default function Profil() {
             <div>
               <button
                 className="create-account-btn"
-                onClick={() => console.log("Créer un nouveau compte")}
+                onClick={() => {
+                  console.log("Créer un nouveau compte");
+                  navigate("/?showModal=true");
+                }}
               >
                 Créer un nouveau compte
               </button>
