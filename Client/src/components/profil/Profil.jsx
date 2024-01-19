@@ -116,6 +116,7 @@ export default function Profil() {
                 className="disconnect-btn"
                 onClick={() => {
                   console.log("Se déconnecter");
+                  localStorage.removeItem("token");
                   navigate("/");
                 }}
               >
