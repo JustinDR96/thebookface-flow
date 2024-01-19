@@ -1,0 +1,62 @@
+// search_bar.scss
+.search-bar {
+    background-color: #111010;
+    max-width: 90%;
+    height: min-content;
+    padding: 15px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 20px;
+    position: relative;
+
+    .search-input-container {
+        display: flex;
+        align-items: center; // Ajout de cette ligne pour aligner verticalement
+
+        input {
+            background-color: #161617;
+            border: none;
+            color: white;
+            outline: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: 7px;
+            border: 1px solid #222323;
+
+            &::placeholder {
+                color: #d9dada;
+            }
+        }
+
+        img {
+            height: 30px;
+            margin-left: -40px;
+            cursor: pointer;
+        }
+    }
+
+    .search-results {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        background-color: #161617;
+        max-height: 200px;
+        color: #f0f0f0;
+        overflow-y: auto;
+
+        .search-result {
+            height: 40px; 
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #666666;;
+            }
+        }
+    }
+}

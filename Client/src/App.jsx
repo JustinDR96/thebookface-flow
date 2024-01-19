@@ -14,6 +14,7 @@ import Pages_Advertising from "./page/Footer_link/Pages_Advertising";
 import Pages_Business from "./page/Footer_link/Pages_Business";
 import Pages_login from "./page/Login/Pages_login";
 import useToken from "./hooks/useToken";
+import Profil_page from "./page/Profil_page/Profil_page";
 
 function App() {
   const getInitialToken = () => JSON.parse(localStorage.getItem("token"));
@@ -51,6 +52,10 @@ function App() {
           <Route
             path="/business"
             element={token ? <Pages_Business /> : <Navigate to="/" />}
+          />
+          <Route
+            path="/profil"
+            element={token ? <Profil_page /> : <Navigate to="/" />}
           />
         </Routes>
       </Router>
