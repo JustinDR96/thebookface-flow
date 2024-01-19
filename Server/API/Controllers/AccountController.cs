@@ -3,8 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Data;
+using API.DTOs;
 using API.Entities;
+using API.Interfaces;
+using API.Services;
 using BCrypt.Net;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
@@ -14,13 +18,15 @@ namespace API.Controllers
     public class AccountController : BaseApiController
     {
         private readonly DataContext _context;
-        public AccountController(DataContext context)
+        private readonly ITokenService _tokenService;
+        public AccountController(DataContext context, ITokenService tokenService)
         {
+            this._tokenService = tokenService;
             _context = context;
         }
 
         [HttpPost("register")] // POST api/account/register
-        public async Task<ActionResult<AppUser>> Register([FromBody] AppUser user)
+        public async Task<ActionResult<UserDTO>> Register([FromBody] AppUser user)
         {
             if(await UserExists(user.UserName)){
                 return BadRequest("Username is taken");
@@ -41,11 +47,14 @@ namespace API.Controllers
             _context.Users.Add(newUser);
             await _context.SaveChangesAsync();
 
-            return newUser;
+            return new UserDTO{
+                Username = newUser.UserName,
+                Token= _tokenService.CreateToken(newUser)
+            };
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<AppUser>> Login(LoginDto loginDto){
+        public async Task<ActionResult<UserDTO>> Login(LoginDto loginDto){
             var user = await _context.Users.SingleOrDefaultAsync(x=>
             x.UserName==loginDto.UserName);
 
@@ -56,7 +65,10 @@ namespace API.Controllers
                 return Unauthorized("Invalid password");
             }
 
-            return user;
+            return new UserDTO{
+                Username = user.UserName,
+                Token=_tokenService.CreateToken(user)
+            };
         }
 
 
