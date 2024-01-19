@@ -1,24 +1,26 @@
 // search_bar.js
-import React, { useState, useEffect, useRef } from 'react';
-import './search_bar.scss'; // Importez le fichier SCSS
+import React, { useState, useEffect, useRef } from "react";
+import "./search_bar.scss"; // Importez le fichier SCSS
+import { useNavigate } from "react-router-dom";
 
 const users = [
-  { id: 1, name: 'John Doe' },
-  { id: 3, name: 'Jane Doe' },
-  { id: 4, name: 'Burak Doe' },
-  { id: 5, name: 'Ayoub Doe' },
-  { id: 6, name: 'Justin Doe' },
-  { id: 7, name: 'Guigui Doe' },
-  { id: 8, name: 'danté Doe' },
+  { id: 1, name: "John Doe" },
+  { id: 3, name: "Jane Doe" },
+  { id: 4, name: "Burak Doe" },
+  { id: 5, name: "Ayoub Doe" },
+  { id: 6, name: "Justin Doe" },
+  { id: 7, name: "Guigui Doe" },
+  { id: 8, name: "danté Doe" },
   // Ajoutez d'autres utilisateurs
 ];
 
 export default function SearchBar() {
-  const [searchTerm, setSearchTerm] = useState('');
+  const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [selectedUsers, setSelectedUsers] = useState([]);
   const [searchOpen, setSearchOpen] = useState(false);
   const searchRef = useRef(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleOutsideClick = (e) => {
@@ -27,10 +29,10 @@ export default function SearchBar() {
       }
     };
 
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
 
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
@@ -51,10 +53,13 @@ export default function SearchBar() {
     setSearchTerm(userName);
     // Fermer la zone de recherche après avoir sélectionné un utilisateur
     setSearchOpen(false);
+    navigate("/profil");
   };
 
   const handleRemoveSuggestion = (userName) => {
-    const updatedResults = searchResults.filter((user) => user.name !== userName);
+    const updatedResults = searchResults.filter(
+      (user) => user.name !== userName
+    );
     setSearchResults(updatedResults);
   };
 
@@ -73,13 +78,20 @@ export default function SearchBar() {
       {searchOpen && (
         <div className="search-results">
           {searchResults.map((user) => (
-            <div key={user.id} className="search-result" onClick={() => handleUserClick(user.name)}>
-              {user.name} <span className="remove-suggestion" onClick={() => handleRemoveSuggestion(user.name)}></span>
+            <div
+              key={user.id}
+              className="search-result"
+              onClick={() => handleUserClick(user.name)}
+            >
+              {user.name}{" "}
+              <span
+                className="remove-suggestion"
+                onClick={() => handleRemoveSuggestion(user.name)}
+              ></span>
             </div>
           ))}
         </div>
       )}
-      
     </div>
   );
 }
