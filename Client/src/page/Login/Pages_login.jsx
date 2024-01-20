@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Pages_login.scss"; // Assurez-vous d'importer le fichier Sass
 import { useNavigate } from "react-router-dom";
+import useToken from "../../hooks/useToken";
 
 export default function Pages_login() {
   const [showModal, setShowModal] = useState(false);
@@ -11,6 +12,7 @@ export default function Pages_login() {
   const [lastName, setLastName] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const { saveToken } = useToken();
 
   const isPasswordValid = () => {
     return password.length >= 9;
@@ -41,10 +43,14 @@ export default function Pages_login() {
       .then((data) => {
         console.log(data);
         // Vérifiez si un token est présent dans la réponse
-        navigate("/home");
         if (data.token) {
-          // Si la connexion réussit, redirigez vers /home
-        } else {
+          console.log("Token reçu: ", data.token);
+          saveToken(data.token, () => {
+            navigate("/home");
+          });
+        }
+        // Si la connexion réussit, redirigez vers /home
+        else {
           // Gérez l'échec de la connexion ici, par exemple en affichant un message d'erreur
         }
       })
