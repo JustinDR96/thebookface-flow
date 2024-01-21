@@ -30,4 +30,11 @@ public class UsersController : BaseApiController
         return await _context.Users.FindAsync(id);
     }
 
+
+    // [HttpGet("{name}")] // api/users/2
+    // public async Task<AppUser> GetUserName(string username)
+    // {
+    //     return await _context.Users.FindAsync(username);
+    // }
+
 }

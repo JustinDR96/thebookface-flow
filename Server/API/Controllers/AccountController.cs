@@ -34,7 +34,7 @@ namespace API.Controllers
 
             var hashedPsswd = BCrypt.Net.BCrypt.HashPassword(user.Password);
 
-            AppUser newUser = new AppUser
+            AppUser newUser = new()
             {
                 Id = user.Id,
                 UserName = user.UserName.ToLower(),
