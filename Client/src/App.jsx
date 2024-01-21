@@ -19,7 +19,6 @@ import Profil_page from "./page/Profil_page/Profil_page";
 function App() {
   const [token] = localStorage.getItem("token");
 
-  
   return (
     <>
       <Router>

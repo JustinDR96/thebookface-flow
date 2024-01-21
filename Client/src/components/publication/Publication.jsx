@@ -1,6 +1,13 @@
 import React, { useState, useEffect, useRef } from "react";
 
 function Publication() {
+  useEffect(() => {
+    fetch("http://localhost:5025/api/Posts")
+      .then((response) => response.json())
+      .then((data) => setPosts(data))
+      .catch((error) => console.error("Erreur:", error));
+  }, []);
+
   const [text, setText] = useState("");
   const [posts, setPosts] = useState([]);
   const [imageUrl, setImageUrl] = useState(null);
@@ -44,46 +51,78 @@ function Publication() {
   //   console.log(posts);
   // }, [posts]);
 
-  const handleTextChange = (e) => {
-    setText(e.target.value);
-    e.target.style.height = "auto";
-    e.target.style.height = `${e.target.scrollHeight}px`;
+  const handleTextChange = (event) => {
+    setText(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Check if the text is empty
+    // Vérifiez si le texte est vide
     if (!text.trim()) {
       return;
     }
 
-    const newPost = { text, imageUrl, gifUrl };
-    setPosts([newPost, ...posts]);
+    const newPost = { TextContent: text, userId: userId }; // Remplacez 'content' par 'TextContent' et ajoutez 'userId'
+
+    fetch("http://localhost:5025/api/Posts/newpost", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newPost),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return response.text();
+      })
+      .then((text) => console.log(text))
+      .then((data) => setPosts([data, ...posts]))
+      .catch((error) => console.error("Erreur:", error));
+
     setText("");
-    setImageUrl(null); // reset the image URL after submitting
-    setGifUrl(null); // reset the GIF URL after submitting
-    setImageLoaded(false); // reset imageLoaded after submitting
-    setGifLoaded(false); // reset gifLoaded after submitting
   };
 
   const handleEdit = (index) => {
-    const newPosts = [...posts];
-    const post = newPosts[index];
+    const post = posts[index];
     const newText = prompt(
       "Entrez le nouveau texte de la publication",
       post.text
     );
     if (newText) {
       post.text = newText;
-      setPosts(newPosts);
+
+      fetch(`http://localhost:5025/api/Posts/${post.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(post),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          const newPosts = [...posts];
+          newPosts[index] = data;
+          setPosts(newPosts);
+        })
+        .catch((error) => console.error("Erreur:", error));
     }
   };
 
   const handleDelete = (index) => {
-    const newPosts = [...posts];
-    newPosts.splice(index, 1);
-    setPosts(newPosts);
+    const post = posts[index];
+
+    fetch(`http://localhost:5025/api/Posts/${post.id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        const newPosts = [...posts];
+        newPosts.splice(index, 1);
+        setPosts(newPosts);
+      })
+      .catch((error) => console.error("Erreur:", error));
   };
 
   return (
@@ -152,21 +191,26 @@ function Publication() {
           </form>
         </div>
 
-        {posts.map((post, index) => (
-          <div className="post_container" key={index}>
-            <p>{post.text}</p>
-            {post.imageUrl && <img src={post.imageUrl} alt="Post" />}
-            {post.gifUrl && <img src={post.gifUrl} alt="Gif" />}
-            <div className="post_button">
-              <button onClick={() => handleEdit(index)}>
-                <img src="/icon/edit_icon.svg" alt="" />
-              </button>
-              <button onClick={() => handleDelete(index)}>
-                <img src="/icon/close_icon.svg" alt="" />
-              </button>
+        {posts.map((post, index) => {
+          if (!post) {
+            return null;
+          }
+
+          return (
+            <div className="post_container" key={index}>
+              <p>{post.textContent}</p>
+              {post.imgUrl ? <img src={post.imgUrl} alt="Post" /> : null}
+              <div className="post_button">
+                <button onClick={() => handleEdit(index)}>
+                  <img src="/icon/edit_icon.svg" alt="" />
+                </button>
+                <button onClick={() => handleDelete(index)}>
+                  <img src="/icon/close_icon.svg" alt="" />
+                </button>
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </>
   );
