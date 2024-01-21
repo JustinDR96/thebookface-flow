@@ -65,16 +65,18 @@ export default function Profil() {
         <Publication /> // Remplacez par le composant Publication lorsque l'image est cliquée
       ) : (
         <div className="notif-profil">
-          <Link to="/home" className="nav-link">
-            <h1 className="logo-text">
-              <img
-                src="/icon/home_icon.svg"
-                alt="home Logo"
-                className="home_logo"
-              />
-              <span className="logo_title">Home</span>
-            </h1>
-          </Link>
+          <a href="#" className="logo-link">
+            <Link to="/home" className="nav-link">
+              <h1 className="logo-text">
+                <img
+                  src="/icon/home_icon.svg"
+                  alt="home Logo"
+                  className="home_logo"
+                />
+                <span className="logo_title">Home</span>
+              </h1>
+            </Link>
+          </a>
 
           <a href="#" className="logo-link">
             <h1 className="logo-text">
