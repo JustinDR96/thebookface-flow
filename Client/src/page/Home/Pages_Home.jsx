@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Main_Container from "../../components/main_container/Main_Container";
 import Profil from "../../components/profil/Profil";
 import Message from "../../components/message/Message";
@@ -6,10 +6,12 @@ import Publication from "../../components/publication/Publication";
 import Navbar from "../../components/navbar/Navbar";
 import Footer from "../../components/footer/Footer";
 import Profil_view from "../../components/profil_view/Profil_view";
+import useToken from "../../hooks/useToken";
+
 
 function Pages_Home() {
   const [activeComponent, setActiveComponent] = useState("publication");
-
+  
   const handleLinkClick = (componentName) => {
     setActiveComponent(componentName);
   };

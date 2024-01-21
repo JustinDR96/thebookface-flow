@@ -40,9 +40,9 @@ function Publication() {
     reader.readAsDataURL(file);
   };
 
-  useEffect(() => {
-    console.log(posts);
-  }, [posts]);
+  // useEffect(() => {
+  //   console.log(posts);
+  // }, [posts]);
 
   const handleTextChange = (e) => {
     setText(e.target.value);

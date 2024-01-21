@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Publication from "../publication/Publication";
 import { useNavigate } from "react-router-dom";
-
+import useToken from "../../hooks/useToken";
+import { jwtDecode } from "jwt-decode";
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
-
+  const [username, setUsername] = useState("");
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const myToken = localStorage.getItem("token");
+    const decodedToken = jwtDecode(myToken);
+    setUsername(decodedToken.nameid);
+  }, []);
 
   const openModal = () => {
     setModalOpen(true);
@@ -29,7 +36,7 @@ export default function Profil() {
         alt=""
         onClick={handleImageClick}
       />
-      <h1>Username</h1>
+      <h1>{username}</h1>
       {isImageClicked && (
         <button className="edit-profil">
           Add Friend
@@ -58,18 +65,16 @@ export default function Profil() {
         <Publication /> // Remplacez par le composant Publication lorsque l'image est cliquée
       ) : (
         <div className="notif-profil">
-          <a href="#" className="logo-link">
-            <Link to="/home" className="nav-link">
-              <h1 className="logo-text">
-                <img
-                  src="/icon/home_icon.svg"
-                  alt="home Logo"
-                  className="home_logo"
-                />
-                <span className="logo_title">Home</span>
-              </h1>
-            </Link>
-          </a>
+          <Link to="/home" className="nav-link">
+            <h1 className="logo-text">
+              <img
+                src="/icon/home_icon.svg"
+                alt="home Logo"
+                className="home_logo"
+              />
+              <span className="logo_title">Home</span>
+            </h1>
+          </Link>
 
           <a href="#" className="logo-link">
             <h1 className="logo-text">
