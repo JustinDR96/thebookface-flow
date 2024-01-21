@@ -17,9 +17,9 @@ import useToken from "./hooks/useToken";
 import Profil_page from "./page/Profil_page/Profil_page";
 
 function App() {
-  const getInitialToken = () => JSON.parse(localStorage.getItem("token"));
-  const [token] = useState(getInitialToken);
+  const [token] = localStorage.getItem("token");
 
+  
   return (
     <>
       <Router>
