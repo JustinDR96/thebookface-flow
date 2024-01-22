@@ -9,9 +9,14 @@ export default function Profil() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const myToken = localStorage.getItem("token");
-    const decodedToken = jwtDecode(myToken);
-    setUsername(decodedToken.nameid);
+    try {
+      const myToken = localStorage.getItem("token");
+      const decodedToken = jwtDecode(myToken);
+      setUsername(decodedToken.nameid);
+    } catch (error) {
+      console.error("Erreur lors du décodage du token JWT", error);
+      // Vous pouvez rediriger l'utilisateur vers une page d'erreur ou simplement ignorer l'erreur
+    }
   }, []);
 
   const openModal = () => {
