@@ -1,6 +1,5 @@
 // search_bar.js
 import React, { useState, useEffect, useRef } from "react";
-import "./search_bar.scss"; // Importez le fichier SCSS
 import { useNavigate } from "react-router-dom";
 
 const users = [
