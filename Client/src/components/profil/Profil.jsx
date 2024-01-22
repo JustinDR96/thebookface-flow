@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Publication from "../publication/Publication";
 import { useNavigate } from "react-router-dom";
 import useToken from "../../hooks/useToken";
-import jwtDecode from "jwt-decode";
+const jwtDecode = require("jwt-decode");
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
   const [username, setUsername] = useState("");
