@@ -80,15 +80,6 @@ export default function Pages_login() {
     setShowPassword(!showPassword);
   };
 
-  const handleCreateAccount = () => {
-    if (!isPasswordValid()) {
-      console.log("Le mot de passe doit avoir au moins 9 caractères.");
-      return;
-    }
-
-    handleCloseModal();
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
 

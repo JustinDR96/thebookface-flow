@@ -21,7 +21,7 @@ public class AppUser
     [Required]
     public string Password { get; set; }
 
-    public List<Post> Posts {get; set; } = new();
+    // public List<Post> Posts {get; set; } = new();
 
     
     public string ProfileImg {get; set; } = "https://thispersondoesnotexist.com/";

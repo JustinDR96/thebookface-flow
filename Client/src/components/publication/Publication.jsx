@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 
+
 function Publication() {
   useEffect(() => {
     fetch("http://localhost:5025/api/Posts")
@@ -63,7 +64,17 @@ function Publication() {
       return;
     }
 
-    const newPost = { TextContent: text, userId: userId }; // Remplacez 'content' par 'TextContent' et ajoutez 'userId'
+    let id ;
+    try {
+      const myToken = localStorage.getItem("token");
+      const decodedToken = jwtDecode(myToken);
+      id = decodedToken.AppUserId;
+    } catch (error) {
+      console.error("Erreur lors du décodage du token JWT", error);
+      // Vous pouvez rediriger l'utilisateur vers une page d'erreur ou simplement ignorer l'erreur
+    }
+
+    const newPost = { TextContent: text, userId: id}; // Remplacez 'content' par 'TextContent' et ajoutez 'userId'
 
     fetch("http://localhost:5025/api/Posts/newpost", {
       method: "POST",

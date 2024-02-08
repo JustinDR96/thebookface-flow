@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4R0lkxNMSG8F7rZecKrogPJQ2Ymf7kKy3Afswb+RyZq/TB4fO7CzECnIYxbJU7uIydpFWZRi7R3excQd2R89MA==",
+  "dgSpecHash": "XylVc9H1fPQ0Z4PBUDsMd9QP2DfqDYouyRQdwIkml0enKSlKgVqmvciF5RyiXIm8OxYM7UWkTEtaSB58kWpyFg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Burak\\Documents\\BeCode\\thebookface-flow\\Server\\API\\API.csproj",
+  "projectFilePath": "C:\\Users\\Burak\\Documents\\BeCode\\thebookface-flow\\Server\\api\\API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Burak\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Burak\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
