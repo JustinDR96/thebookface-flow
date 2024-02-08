@@ -2,17 +2,21 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Publication from "../publication/Publication";
 import { useNavigate } from "react-router-dom";
-import useToken from "../../hooks/useToken";
-import { jwtDecode } from "jwt-decode";
+import jwtDecode from "jwt-decode";
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
-    const myToken = localStorage.getItem("token");
-    const decodedToken = jwtDecode(myToken);
-    setUsername(decodedToken.nameid);
+    try {
+      const myToken = localStorage.getItem("token");
+      const decodedToken = jwtDecode(myToken);
+      setUsername(decodedToken.nameid);
+    } catch (error) {
+      console.error("Erreur lors du décodage du token JWT", error);
+      // Vous pouvez rediriger l'utilisateur vers une page d'erreur ou simplement ignorer l'erreur
+    }
   }, []);
 
   const openModal = () => {
