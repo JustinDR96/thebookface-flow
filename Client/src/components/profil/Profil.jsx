@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Publication from "../publication/Publication";
 import { useNavigate } from "react-router-dom";
-import jwtDecode from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 export default function Profil() {
   const [modalOpen, setModalOpen] = useState(false);
   const [username, setUsername] = useState("");

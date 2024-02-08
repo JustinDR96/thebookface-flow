@@ -17,7 +17,7 @@ import useToken from "./hooks/useToken";
 import Profil_page from "./page/Profil_page/Profil_page";
 
 function App() {
-  const [token] = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
   return (
     <>
